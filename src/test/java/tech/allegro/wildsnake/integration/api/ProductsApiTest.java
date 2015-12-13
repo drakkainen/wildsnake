@@ -48,6 +48,7 @@ public class ProductsApiTest extends WildSnakeIntegrationTest {
 
     @Test
     public void should_get_one_product() {
+
         realProductRepository.deleteAll();
         givenProduct()
                 .buildNumberOfProductsAndSave(1);
