@@ -48,11 +48,17 @@ public class ProductsApiTest extends WildSnakeIntegrationTest {
 
     @Test
     public void should_get_one_product() {
+        realProductRepository.deleteAll();
         givenProduct()
                 .buildNumberOfProductsAndSave(1);
 
         Product product = thenGetOneProductFromApi();
+
+        System.out.println("wszystkie produkty:");
+        System.out.println(realProductRepository.findAll());
+        System.out.println("produkt z thenGetOneProductFromApi");
         System.out.println(product);
+
         assertThat(product).isEqualToComparingFieldByField(new ProductBuilder(String.format("product_%s", 0)).build());
     }
 
