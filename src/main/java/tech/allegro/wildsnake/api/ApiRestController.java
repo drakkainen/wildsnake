@@ -38,7 +38,7 @@ public class ApiRestController {
 
     }
 
-    @RequestMapping(value = "/product_{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/products/product_{productId}", method = RequestMethod.GET)
     public ResponseEntity<Product> getOneProduct(
             @PathVariable("productId") Optional<Long> productId) {
         Product product = productService.findOne(productId);
